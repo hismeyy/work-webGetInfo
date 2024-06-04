@@ -1,0 +1,119 @@
+/* 自定义样式 */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#save-button, #submit-button, #start-button {
+    width: 100%;
+}
+
+/* 调整底部卡片按钮的位置 */
+.card .card-body {
+    position: relative;
+}
+
+#start-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: auto;
+}
+
+.con-body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/*!* 调整表格样式 *!*/
+/*table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin-top: 30px;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*thead {*/
+/*    background-color: #f8f9fa; !* 表头背景色 *!*/
+/*}*/
+
+/*th, td {*/
+/*    padding: 8px; !* 单元格内边距 *!*/
+/*    border: 1px solid #dee2e6; !* 单元格边框 *!*/
+/*}*/
+
+/*tbody tr:hover {*/
+/*    background-color: #e9ecef; !* 鼠标悬停时行背景色 *!*/
+/*}*/
+
+/* 操作列按钮样式 */
+.delete-button {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.delete-button:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+/* 调整表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+thead {
+    background-color: #f8f9fa; /* 表头背景色 */
+}
+
+th, td {
+    padding: 8px; /* 单元格内边距 */
+    border-top: 1px solid #dee2e6; /* 上边框 */
+    border-bottom: 1px solid #dee2e6; /* 下边框 */
+}
+
+/* 设置网站和关键字列的宽度 */
+th:first-child,
+td:first-child {
+    width: 45%; /* 网站列宽度 */
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 45%; /* 关键字列宽度 */
+}
+
+th:last-child,
+td:last-child {
+    width: 10%; /* 操作列宽度 */
+}
+
+tbody tr:hover {
+    background-color: #e9ecef; /* 鼠标悬停时行背景色 */
+}
+
+/* 移除水平边框 */
+th:first-child,
+td:first-child {
+    border-left: none;
+}
+
+th:last-child,
+td:last-child {
+    border-right: none;
+}

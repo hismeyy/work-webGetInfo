@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网站爬取工具</title>
+    <link href="./base.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <!-- 左侧卡片 -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">设置</h5>
+                    <div class="form-group">
+                        <label for="auto-start">是否开机自动启动</label>
+                        <select class="form-control" id="auto-start">
+                            <option value="True">是</option>
+                            <option value="False">否</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="frequency">爬取数据频率 <span style="color: red">单位是小时(h)</span></label>
+                        <input class="form-control" id="frequency" placeholder="请输入频率，例如:12,每12小时执行一次"
+                               type="text">
+                    </div>
+                    <button class="btn btn-primary" id="save-button">保存</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧卡片 -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">添加项目</h5>
+                    <div class="form-group">
+                        <label for="input1">网站网址</label>
+                        <input class="form-control" id="input1" placeholder="请输入网站网址" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="input2">关键字<span
+                                style="color: red"> "注意:关键字之间请用英文逗号隔开!"</span></label>
+                        <input class="form-control" id="input2" placeholder="请输入关键字" type="text">
+                    </div>
+                    <button class="btn btn-primary" id="submit-button">添加</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部卡片 -->
+    <div class="card">
+        <div class="card-body">
+            <button class="btn btn-success" id="start-button">开始执行</button>
+        </div>
+        <div class="con-body">
+            <table>
+                <thead>
+                <tr>
+                    <th>网站</th>
+                    <th>关键字</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="projects-table">
+                <!-- 动态插入行 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="./init.js"></script>
+<script src="./setting.js"></script>
+<script src="./project_data.js"></script>
+<script>
+
+
+    // 开始执行按钮点击事件
+    $('#start-button').on('click', function () {
+        let button_element = $('#start-button')
+        if (button_element.text() === "开始执行") {
+            button_element.text("停止执行")
+            button_element.removeClass('btn-success').addClass('btn-danger')
+            pywebview.api.start().then(function () {
+
+            })
+        } else {
+            pywebview.api.stop().then(function () {
+                button_element.text("开始执行")
+                button_element.removeClass('btn-danger').addClass('btn-success')
+            })
+        }
+    });
+
+</script>
+
+
+</body>
+</html>
